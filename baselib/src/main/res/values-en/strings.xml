@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Permission purpose dialog (aligned with Huawei requirements) -->
+    <string name="permission_request_purpose_title">Permission Usage Information</string>
+    <string name="permission_request_purpose_continue">Continue</string>
+    <!-- Custom permission card: Deny/Allow buttons consistent with system dialog -->
+    <string name="permission_btn_deny_text">Deny</string>
+    <string name="permission_btn_allow_text">Allow</string>
+    <!-- Allow [AppName] to [permission action description] -->
+    <string name="permission_prompt_template">Allow %1$s to "%2$s"</string>
+    <!-- HTTP Errors -->
+    <string name="http_429_error">Omnibot is busy right now, please try again later!</string>
+</resources>

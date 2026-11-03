@@ -8,4 +8,6 @@
     <string name="permission_btn_allow_text">允许</string>
     <!-- 是否允许 [AppName] [权限操作描述] -->
     <string name="permission_prompt_template">是否允许 %1$s「%2$s」</string>
+    <!-- HTTP Errors -->
+    <string name="http_429_error">小万忙不过来了，等会儿再试试吧!</string>
 </resources>
