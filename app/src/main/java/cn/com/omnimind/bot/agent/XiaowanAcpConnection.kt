@@ -1397,7 +1397,7 @@ internal class XiaowanAcpEventBridge(
                 toolTypesById[id] = toolType
                 emitUpdate(SessionUpdate.ToolCall(
                     toolCallId = ToolCallId(id),
-                    title = xiaowanToolTitle(name),
+                    title = xiaowanToolTitle(context, name),
                     kind = xiaowanToolKind(name, toolType),
                     status = ToolCallStatus.PENDING,
                     rawInput = input,
@@ -1405,7 +1405,7 @@ internal class XiaowanAcpEventBridge(
             } else {
                 emitUpdate(SessionUpdate.ToolCallUpdate(
                     toolCallId = ToolCallId(id),
-                    title = xiaowanToolTitle(name),
+                    title = xiaowanToolTitle(context, name),
                     kind = xiaowanToolKind(name, toolType),
                     rawInput = input,
                 ))
@@ -1470,7 +1470,7 @@ internal class XiaowanAcpEventBridge(
         if (!first) {
             emitUpdate(SessionUpdate.ToolCallUpdate(
                 toolCallId = ToolCallId(toolCallId),
-                title = xiaowanToolTitle(toolName),
+                title = xiaowanToolTitle(context, toolName),
                 kind = xiaowanToolKind(toolName, toolType),
                 status = ToolCallStatus.IN_PROGRESS,
                 rawInput = arguments,
@@ -1480,7 +1480,7 @@ internal class XiaowanAcpEventBridge(
         emitUpdate(
             SessionUpdate.ToolCall(
                 toolCallId = ToolCallId(toolCallId),
-                title = xiaowanToolTitle(toolName),
+                title = xiaowanToolTitle(context, toolName),
                 kind = xiaowanToolKind(toolName, toolType),
                 status = ToolCallStatus.IN_PROGRESS,
                 content = listOf(
@@ -1547,7 +1547,7 @@ internal class XiaowanAcpEventBridge(
         emitUpdate(
             SessionUpdate.ToolCallUpdate(
                 toolCallId = ToolCallId(toolCallId),
-                title = xiaowanToolTitle(toolName),
+                title = xiaowanToolTitle(context, toolName),
                 kind = xiaowanToolKind(
                     toolName,
                     toolTypesById[toolCallId],
@@ -1649,7 +1649,7 @@ internal class XiaowanAcpEventBridge(
         emitUpdate(
             SessionUpdate.ToolCallUpdate(
                 toolCallId = ToolCallId(resolvedToolCallId),
-                title = xiaowanToolTitle(toolName),
+                title = xiaowanToolTitle(context, toolName),
                 kind = xiaowanToolKind(toolName, toolTypesById[resolvedToolCallId]),
                 status = if (toolResultSucceeded(result)) {
                     ToolCallStatus.COMPLETED
@@ -2172,21 +2172,24 @@ private fun xiaowanToolKind(toolName: String, declaredToolType: String? = null):
 }
 
 /** ACP title is user-facing; the function name remains in toolName/rawInput. */
-private fun xiaowanToolTitle(toolName: String): String = when (toolName.trim()) {
-    "android_privileged_action" -> "安卓高级动作"
-    "android_privileged_session_start" -> "启动高权限会话"
-    "android_privileged_session_exec" -> "执行高权限命令"
-    "android_privileged_session_read" -> "读取高权限输出"
-    "android_privileged_session_stop" -> "结束高权限会话"
-    "terminal_execute", "bash" -> "执行终端命令"
-    "file_read", "read" -> "读取文件"
-    "file_write", "write" -> "写入文件"
-    "file_edit", "edit" -> "编辑文件"
-    "file_list", "glob" -> "列出文件"
-    "file_search", "grep" -> "搜索文件"
-    "browser_use", "webfetch" -> "浏览器操作"
-    "vlm_task" -> "执行界面操作"
-    else -> toolName
+private fun xiaowanToolTitle(context: Context, toolName: String): String {
+    val localizedContext = AppLocaleManager.localizedContext(context)
+    return when (toolName.trim()) {
+        "android_privileged_action" -> localizedContext.getString(R.string.tool_privileged_action)
+        "android_privileged_session_start" -> localizedContext.getString(R.string.tool_privileged_session_start)
+        "android_privileged_session_exec" -> localizedContext.getString(R.string.tool_privileged_session_exec)
+        "android_privileged_session_read" -> localizedContext.getString(R.string.tool_privileged_session_read)
+        "android_privileged_session_stop" -> localizedContext.getString(R.string.tool_privileged_session_stop)
+        "terminal_execute", "bash" -> localizedContext.getString(R.string.tool_terminal_execute)
+        "file_read", "read" -> localizedContext.getString(R.string.tool_file_read)
+        "file_write", "write" -> localizedContext.getString(R.string.tool_file_write)
+        "file_edit", "edit" -> localizedContext.getString(R.string.tool_file_edit)
+        "file_list", "glob" -> localizedContext.getString(R.string.tool_file_list)
+        "file_search", "grep" -> localizedContext.getString(R.string.tool_file_search)
+        "browser_use", "webfetch" -> localizedContext.getString(R.string.tool_browser_use)
+        "vlm_task" -> localizedContext.getString(R.string.tool_vlm_task)
+        else -> toolName
+    }
 }
 
 /** Maps provider finish_reason values to the finite ACP stop-reason enum. */

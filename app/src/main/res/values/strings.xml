@@ -53,4 +53,25 @@
     <!-- Launcher Activity -->
     <string name="launcher_app_name">小万</string>
     <string name="launcher_initializing">正在初始化...</string>
+    <!-- Tool Titles -->
+    <string name="tool_privileged_action">安卓高级动作</string>
+    <string name="tool_privileged_session_start">启动高权限会话</string>
+    <string name="tool_privileged_session_exec">执行高权限命令</string>
+    <string name="tool_privileged_session_read">读取高权限输出</string>
+    <string name="tool_privileged_session_stop">结束高权限会话</string>
+    <string name="tool_terminal_execute">执行终端命令</string>
+    <string name="tool_file_read">读取文件</string>
+    <string name="tool_file_write">写入文件</string>
+    <string name="tool_file_edit">编辑文件</string>
+    <string name="tool_file_list">列出文件</string>
+    <string name="tool_file_search">搜索文件</string>
+    <string name="tool_browser_use">浏览器操作</string>
+    <string name="tool_vlm_task">执行界面操作</string>
+    <!-- Music Playback States -->
+    <string name="music_state_preparing">准备中</string>
+    <string name="music_state_playing">播放中</string>
+    <string name="music_state_paused">已暂停</string>
+    <string name="music_state_completed">已完成</string>
+    <string name="music_state_error">播放失败</string>
+    <string name="music_state_stopped">已停止</string>
 </resources>

@@ -53,4 +53,25 @@
     <!-- Launcher Activity -->
     <string name="launcher_app_name">Omnibot</string>
     <string name="launcher_initializing">Initializing...</string>
+    <!-- Tool Titles -->
+    <string name="tool_privileged_action">Android Privileged Action</string>
+    <string name="tool_privileged_session_start">Start Privileged Session</string>
+    <string name="tool_privileged_session_exec">Execute Privileged Command</string>
+    <string name="tool_privileged_session_read">Read Privileged Output</string>
+    <string name="tool_privileged_session_stop">Stop Privileged Session</string>
+    <string name="tool_terminal_execute">Execute Terminal Command</string>
+    <string name="tool_file_read">Read File</string>
+    <string name="tool_file_write">Write File</string>
+    <string name="tool_file_edit">Edit File</string>
+    <string name="tool_file_list">List Files</string>
+    <string name="tool_file_search">Search Files</string>
+    <string name="tool_browser_use">Browser Operation</string>
+    <string name="tool_vlm_task">Execute GUI Operation</string>
+    <!-- Music Playback States -->
+    <string name="music_state_preparing">Preparing</string>
+    <string name="music_state_playing">Playing</string>
+    <string name="music_state_paused">Paused</string>
+    <string name="music_state_completed">Completed</string>
+    <string name="music_state_error">Playback Failed</string>
+    <string name="music_state_stopped">Stopped</string>
 </resources>
