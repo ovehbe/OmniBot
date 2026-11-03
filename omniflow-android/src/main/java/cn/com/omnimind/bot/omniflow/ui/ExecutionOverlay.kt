@@ -14,6 +14,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import cn.com.omnimind.baselib.i18n.AppLocaleManager
+import cn.com.omnimind.bot.omniflow.R
 import android.widget.TextView
 import cn.com.omnimind.androidgui.AndroidGuiOverlayHost
 import cn.com.omnimind.baselib.util.OmniLog

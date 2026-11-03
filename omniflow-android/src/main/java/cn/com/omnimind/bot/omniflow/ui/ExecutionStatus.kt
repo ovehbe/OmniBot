@@ -2,6 +2,7 @@ package cn.com.omnimind.bot.omniflow.ui
 
 import android.content.Context
 import cn.com.omnimind.baselib.i18n.AppLocaleManager
+import cn.com.omnimind.bot.omniflow.R
 
 internal enum class ExecutionPhase {
     REASONING,

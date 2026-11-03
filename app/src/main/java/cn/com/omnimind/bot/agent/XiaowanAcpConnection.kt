@@ -12,7 +12,9 @@ import cn.com.omnimind.baselib.llm.PlatformAiProvisioner
 import cn.com.omnimind.baselib.llm.ProviderModelOption
 import cn.com.omnimind.baselib.llm.SceneModelBindingEntry
 import cn.com.omnimind.baselib.llm.SceneModelBindingStore
+import cn.com.omnimind.baselib.i18n.AppLocaleManager
 import cn.com.omnimind.bot.BuildConfig
+import cn.com.omnimind.bot.R
 import cn.com.omnimind.bot.agent.AgentCallback
 import cn.com.omnimind.bot.agent.AgentConversationModePolicy
 import cn.com.omnimind.bot.agent.AgentModelOverride
@@ -758,6 +760,7 @@ private class XiaowanAgentSession(
         }
         val conversationId = conversationIdProvider(sessionId.value)
         val streamBridge = XiaowanAcpEventBridge(
+            context
         ) { update ->
             // AgentCallback can arrive from provider/tool worker coroutines.
             // `flow { emit(...) }` is not thread-safe and drops the whole turn
@@ -1245,6 +1248,7 @@ internal fun xiaowanTerminalEnvironmentFromMeta(
 }
 
 internal class XiaowanAcpEventBridge(
+    private val context: Context,
     private val emitUpdate: suspend (SessionUpdate) -> Unit,
 ) : AgentCallback {
     private val callbackMutex = Mutex()

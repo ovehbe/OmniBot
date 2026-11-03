@@ -41,7 +41,7 @@ object AgentToolDefinitions {
             "执行命令行命令或启动需要后台交互的进程。支持单次命令和持久会话（session），进程结束前用 terminal_read 读取输出。命令输出默认只展示最近部分，用户看不到完整历史；如果需要分析完整日志，应主动用 file_write 重定向保存。" ->
                 "Execute command-line commands or launch processes requiring background interaction. Supports single commands and persistent sessions; use terminal_read to fetch output before the process ends. Command output shows only the most recent portion by default; users cannot see full history, so actively redirect and save with file_write when full logs are needed for analysis."
             
-            "创建新的定时任务。`targetKind=subagent` 为唯一支持的执行类型；`subagentPrompt` 必须写成任务触发时要立即执行的动作，不要重复填写"每天几点提醒我/定时去做"这类调度描述。" ->
+            "创建新的定时任务。`targetKind=subagent` 为唯一支持的执行类型；`subagentPrompt` 必须写成任务触发时要立即执行的动作，不要重复填写\"每天几点提醒我/定时去做\"这类调度描述。" ->
                 "Create a new scheduled task. `targetKind=subagent` is the only supported execution type; `subagentPrompt` must describe the action to execute when triggered, not scheduling descriptions like \"remind me at X time every day\" or \"scheduled to do\"."
             
             "修改已有定时任务的时间、标题、每日重复或启停状态。`targetKind=subagent` 为唯一支持的执行类型；更新后的 `subagentPrompt` 仍应描述触发时真正执行的动作，而不是再次描述调度本身。" ->
