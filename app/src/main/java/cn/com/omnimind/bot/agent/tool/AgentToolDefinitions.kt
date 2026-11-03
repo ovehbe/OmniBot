@@ -201,7 +201,10 @@ object AgentToolDefinitions {
         "写入当日记忆" to "Write Daily Memory",
         "沉淀长期记忆" to "Upsert Long-Term Memory",
         "整理当日记忆" to "Roll Up Daily Memory",
+        "加载长期记忆" to "Load Long-Term Memory",
         "分派子任务" to "Dispatch Subtasks",
+        "查找可用工具" to "Find Available Tools",
+        "查询当前时间" to "Query Current Time",
         "查询设备已安装应用列表。需要应用包名或确认应用是否已安装时优先调用。" to
             "Query the list of apps installed on the device. Prefer this when you need an app package name or need to confirm whether an app is installed.",
         "通过 Android GUI 插件的 VLM 流程操作当前界面。只要用户要求操作手机或 App（例如下单咖啡、购物、联系人、设置、导航、打开应用），必须立即调用此工具，并把完整用户目标原样放入 goal；不要用 terminal/browser 代替，也不要直接回复已完成。若 OmniFlow 操作模块未启用，调用后会提示用户到插件市场手动启用。" to
